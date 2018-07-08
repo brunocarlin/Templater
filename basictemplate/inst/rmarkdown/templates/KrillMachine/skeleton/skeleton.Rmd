@@ -33,7 +33,9 @@ import pandas as py
 import matplotlib as plt
 import pandas as pd
 
-``` 
+```
+
+
 
 # Importing the dataset
 
@@ -93,20 +95,23 @@ test.set = subset(dataset, split == FALSE)
 
 
 
-# Feature Scaling
+Feature Scaling
 
-## Python
+Python
 
-<!-- ```{python} -->
-<!-- from sklearn.preprocessing import StandardScaler -->
-<!-- sc_X = StandardScaler() -->
-<!-- X_train = sc_X.fit_transform(X_train) -->
-<!-- X_test = sc_X.transform(X_test) -->
-<!-- ``` -->
+```{python eval=FALSE, include=FALSE}
+from sklearn.preprocessing import StandardScaler
+sc_X = StandardScaler()
+X_train = sc_X.fit_transform(X_train)
+X_test = sc_X.transform(X_test)
+```
 
-## R
+R
 
-# ```{r}
-# training.set[2:3] = scale(training.set[,2:3])
-# test.set[2:3] = scale(test.set[,2:3])
-# ```
+```{r eval=FALSE, include=FALSE}
+training.set[2:3] = scale(training.set[,2:3])
+test.set[2:3] = scale(test.set[,2:3])
+```
+
+
+
