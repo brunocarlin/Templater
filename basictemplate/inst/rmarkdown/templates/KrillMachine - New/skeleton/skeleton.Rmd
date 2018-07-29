@@ -27,6 +27,10 @@ set.seed(123)
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import os
+os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = '/Users/Anton/Anaconda3/Library/plugins/platforms'
+```
+
 ```
 
 
