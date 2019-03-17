@@ -1,7 +1,7 @@
 ---
 title: "skeleton"
 author: "Bruno Carlin"
-date: "07/07/2018"
+date: "17/03/2019"
 output:
   html_document:
     toc: true # table of content true
@@ -11,14 +11,39 @@ output:
     highlight: tango  # specifies the syntax highlighting style
 ---
 
+#Status
+This project will get new boilerplate code as I improve.
+
+Currently support:
+R <> Python
+Importing Dataset
+Split Train-Test
+Feature Scalling
+
+Planned:
+Both:
+Simple Machine Learning Code
+
+Python:
+Skit-Learn
+Some interesting code in Hands on Machine Learning
+
+R:
+caret and or tidymodels
+I hope to find some good R code
+          
 # Importing the libraries
+I recommend using Files setwd to find the path
 ```{r setup, include=FALSE}
-knitr::opts_knit$set(root.dir = normalizePath("~/TCC/R/Krill-Machine-Learning/Machine Learning A-Z Template Folder/Part 1 - Data Preprocessing/Data_Preprocessing"))
+knitr::opts_knit$set(root.dir = normalizePath("~/some/path/to/save/and/read"))
+
 ```
 
 ```{r R Library}
 library(reticulate)
 library(caTools)
+#library(tidyverse)
+#library(roperators)
 set.seed(123)
 ```
 
@@ -28,9 +53,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import os
-os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = '/Users/Anton/Anaconda3/Library/plugins/platforms'
-```
-
+#Replace Anton with your user name
+os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = \
+'/Users/Anton/Anaconda3/Library/plugins/platforms'
 ```
 
 
@@ -38,16 +63,22 @@ os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = '/Users/Anton/Anaconda3/Library/plug
 
 ## Importing the dataset
 
+You need to choose your varibles for X and Y
 ```{python}
 dataset = pd.read_csv('Data.csv')
-X = dataset.iloc[:, :-1].values
-y = dataset.iloc[:, 3].values
+X = dataset.iloc[:, :-1].values #Features
+y = dataset.iloc[:, 3].values #Response
 ```
 
 ## Splitting the dataset into the Training set and Test set
 ```{python}
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=0
+)
 ```
 
 
@@ -69,6 +100,9 @@ y_train = sc_y.fit_transform(y_train)"""
 
 ```{r}
 dataset = read.csv('Data.csv')
+# or
+# dataset = read_csv('Data.csv')
+
 ```
 
 ## Splitting the dataset into the Training set and Test set
