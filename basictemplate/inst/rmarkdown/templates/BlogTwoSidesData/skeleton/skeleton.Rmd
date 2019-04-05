@@ -1,0 +1,86 @@
+---
+title: 'exploratory data analysis: basic pandas and dplyr'
+authors: 
+- admin
+date: '2019-03-23'
+slug: exploratory-data-analysis-basic-pandas-and-dplyr
+categories:
+  - R and Python
+  - r-project
+tags:
+  - R Markdown
+  - reticulate
+  - pandas
+  - dplyr
+  - tidyverse
+header-includes:
+  This is an basic example of how you can use either R or Python to accomplish the same goals, I really enjoy using the tidyverse but as you will see sometimes Python is just the more intuitive option.  If you find yourself confused on whether a code chunk is an R or Python code please ask me or check my github page for this project. <br> <br> 
+output:
+  blogdown::html_page:
+    before_body: doc_prefix.html
+    toc: true # table of content true
+    number_sections: true  ## if you want number sections at each table header
+---
+I am currently doing exercises from [digital house brasil](https://github.com/sn3fru/datascience_course)
+
+
+
+# Getting Started, we will use multiple functions from both languages
+
+## How to set up reticulate?
+
+### Setting root folder
+
+I recommend using the Files tab to find the your system path to the folder containig all the data.  
+  
+Use opts_knit to guarantee that your markdown functions will search for files
+in the folder specified, it is better that setwd() because it works on
+all languages.
+```{r exploratory_data1-1 }
+knitr::opts_knit$set(root.dir = normalizePath(
+  "~/R/Blog/content/post/data"))
+
+```
+
+### Libraries {#anchor}
+![](https://media.giphy.com/media/8YZEKuDRHPtgZTx7Rv/giphy.gif)
+<details><summary>R part</summary>
+<p>
+
+```{r exploratory_data1-2, message=FALSE, warning=FALSE}
+library(reticulate)
+library(caTools)
+library(roperators)
+library(tidyverse)
+set.seed(123)
+```
+
+</p>
+</details>
+
+<details><summary>Python part</summary>
+<p>
+
+I am using my second virtual conda if you have just the root
+switch to conda_list()[[1]][1].
+```{r exploratory_data1-3 }
+conda_list()[[1]][2] %>% 
+  use_condaenv(required = TRUE)
+```
+
+Let's see what version of python this env is running.
+```{python exploratory_data1-4}
+import platform
+print(platform.python_version())
+```
+
+Some basic Data Science Libraries.
+```{python exploratory_data1-5}
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import os
+```
+
+</p>
+</details>
